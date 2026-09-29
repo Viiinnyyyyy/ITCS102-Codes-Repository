@@ -1,3 +1,4 @@
+print("--------------------------------------------------------------------------------------------------------------------------------------")
 age = int(input("ENTER YOUR AGE --->  "))
 rev = float(input('HOW MUCH IS YOUR MONTHLY REVENUE? --->  '))
 cs = int(input("WHAT IS YOUR CREDIT SCORE? --->  "))
@@ -5,6 +6,8 @@ years = float(input("HOW LONG ARE YOUR BUSINESS IN THE INDUSTRY? --->  "))
 defa = eval(input("DID YOU ALREADY FILE FOR BANKRUPCY? --->  "))
 col = input("WHAT IS YOUR COLLATERAL? --->  ")
 colval = float(input("HOW MUCH DOES  YOUR COLLATERAL WORTH? --->  "))
+
+print("--------------------------------------------------------------------------------------------------------------------------------------")
 
 maxloan = 0
 basefee = 0
@@ -23,15 +26,14 @@ if age >= 21 and defa == False and years >= 2.0 :
             print("YOUR BASE FEE IS", basefee)
         if colval >= maxloan :
             print("COLLATERAL ",col," WITH THE VALUE OF ",colval,' IS ACCEPTED')
+            if colval % 5000 != 0 :
+                print("ADDITIONAL CHARGE ADDED") 
+                surgefee = basefee + 250
+                print("UPDATED BASE FEE IS ", surgefee)
+            else:
+                pass
         else:
             print("REJECTED: INSUFFUCIENT COLLATERAL VALUE FOR ",col)
-        surgefee = maxloan * basefee
-        print("ADDITIONAL CHARGE OF ",surgefee)
-        if maxloan % 5000 :
-            print("ADDITIONAL CHARGE ADDED") 
-            surgefee += 250
-            print("UPDATED BASE FEE IS ", surgefee)
-
     elif 620 <= cs <= 720 :
         print("GOOD CREDIT SCORE")
         maxloan = rev * 1.5
@@ -44,18 +46,18 @@ if age >= 21 and defa == False and years >= 2.0 :
             print("YOUR BASE FEE IS", basefee)
         if colval >= maxloan :
             print("COLLATERAL ",col," WITH THE VALUE OF ",colval,' IS ACCEPTED')
+            if colval % 5000 != 0 :
+                print("ADDITIONAL CHARGE ADDED") 
+                surgefee = basefee + 250
+                print("UPDATED BASE FEE IS ", surgefee)
+            else:
+                pass
         else:
             print("REJECTED: INSUFFUCIENT COLLATERAL VALUE FOR ",col)
-        surgefee = maxloan * basefee
-        print("ADDITIONAL CHARGE OF ",surgefee)
-        if maxloan % 5000 :
-            print("ADDITIONAL CHARGE ADDED") 
-            surgefee += 250
-            print("UPDATED BASE FEE IS ", surgefee)
-
+       
     elif 1 <= cs < 620:
-        print("SCORE TOO LOW")
-    else:
+        print("REJECTED: CREIT SCORE TOO LOW")
+    else :
         print("INVALID")
 else:
     print("REJECTED")
